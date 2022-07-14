@@ -3,7 +3,7 @@
 
 void CutNum (string num)
 {
-    Console.WriteLine(num[0],num[2]);
+    Console.WriteLine($"{num[0]}{num[2]}");
 }
 
 int number = new Random().Next(100,1000);
