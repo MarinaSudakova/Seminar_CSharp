@@ -3,9 +3,7 @@
 
 void CutNum (int num)
 {
-    int a = num / 100;
-    int b = num%10;
-    Console.WriteLine($"{a}{b}");
+    Console.WriteLine($"{num / 100}{num%10}");
 }
 
 int number = new Random().Next(100,1000);
