@@ -2,7 +2,7 @@
 
 int FillArray(int[] num)
 {
-        for (int i=0; i<8; i++)
+    for (int i=0; i<8; i++)
     {
         num[i] = new Random().Next(1, 30);
     }
