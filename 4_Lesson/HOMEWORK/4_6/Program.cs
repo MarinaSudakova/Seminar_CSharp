@@ -1,22 +1,23 @@
 ﻿// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран
 
-int FillArray(int[] num)
+int [] FillArray(int num)
 {
-    for (int i=0; i<8; i++)
+    int[] array = new int[num];
+    for (int i=0; i<num; i++)
     {
-        num[i] = new Random().Next(1, 30);
+        array[i] = new Random().Next(1, 30);
     }
-    return num;
+    return array;
 }
 
-void ShowArray(int[] array)
+
+void ShowArray(int[] coll)
 {
-    for (int ind = 0; ind < array.Length; ind++)
+    for (int ind = 0; ind < coll.Length; ind++)
     {
-        Console.Write ($"{array[ind]} ");
+        Console.Write ($"{coll[ind]} ");
     }
 }
 
-int arr_1 = FillArray();
+ShowArray (FillArray(8));
 
-ShowArray(arr_1);
