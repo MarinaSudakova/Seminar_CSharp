@@ -3,15 +3,15 @@
 // x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются
 // пользователем.
 
-void Point (double k1, double b1, double k2, double b2)
+void Point (double b1, double k1, double b2, double k2)
 {
     double x = 0;
     double y = 0;
 
     if (k1 - k2 != 0)
     {
-        x = (b1 - b2) / (k1 - k2);
-        y = k1 * x + b2;
+        x = (b2 - b1) / (k1 - k2);
+        y = k1 * x + b1;
     }
 
     else
