@@ -35,34 +35,43 @@ int [,] MussNums (int row, int column, int from, int to)
 int[,] ArrayMultiplication (int[,] arr1, int [,] arr2)
 {
     int row = arr1.GetLength(0);
-    int column = arr1.GetLength(1);
+    int column = arr2.GetLength(1);
     
     int[,] newArr = new int [row, column];
+    if (row != column)
+        Console.WriteLine ("Error");
 
-    for (int i=0; i< row; i++)
+    else
     {
-        for (int j=0; j<column; j++)
+        for (int i=0; i< row; i++)
         {
-            for (int p = 0; p < column; p++)
+            for (int j=0; j<column; j++)
             {
-                newArr[i, j] = newArr[i,j] + arr1[p,j] * arr2[i,p];
-            }
-        } 
+                for (int p = 0; p < column; p++)
+                {
+                    newArr[i, j] = newArr[i,j] + arr1[p,j] * arr2[i,p];
+                }
+            } 
+        }
     }
     return newArr;
 }
 
 
-Console.Write("Enter the number of rows: ");
-int row = int.Parse(Console.ReadLine());
-Console.Write("Enter the number of columns: ");
-int column = int.Parse(Console.ReadLine());
+Console.Write("Enter the number of rows of first matrix: ");
+int row1 = int.Parse(Console.ReadLine());
+Console.Write("Enter the number of columns of first matrix: ");
+int column1 = int.Parse(Console.ReadLine());
 
-int[,] arr1 = MussNums (row, column, 1, 10);
+int[,] arr1 = MussNums (row1, column1, 1, 10);
 PrintArray(arr1);
 Console.WriteLine();
 
-int[,] arr2 = MussNums (row, column, 1, 10);
+Console.Write("Enter the number of rows of second matrix: ");
+int row2 = int.Parse(Console.ReadLine());
+Console.Write("Enter the number of columns of second matrix: ");
+int column2 = int.Parse(Console.ReadLine());
+int[,] arr2 = MussNums (row2, column2, 1, 10);
 PrintArray(arr2);
 
 int[,] arr3 = ArrayMultiplication(arr1, arr2);
