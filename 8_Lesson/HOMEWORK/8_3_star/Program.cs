@@ -56,6 +56,23 @@ void FindElement (int[,] arr)
     Console.WriteLine ($" Secont element is finded {countSecondElement} times,");
 }
 
+// Версия учителя
+int[] FrequencyDict(int[,] arr)
+{
+    int[] freq = new int[10];
+
+    foreach (int item in arr) freq[item] += 1;
+    return freq;
+}
+
+void PrintMass(int[] arr)
+{
+    for (int i = 0; i < arr.Length; i++)
+        Console.WriteLine($"{i} meets: {arr[i]}");
+    Console.WriteLine();
+}
+
+
 Console.Write("Enter the number of rows: ");
 int row = int.Parse(Console.ReadLine());
 Console.Write("Enter the number of columns: ");

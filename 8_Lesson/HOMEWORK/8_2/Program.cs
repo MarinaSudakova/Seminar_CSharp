@@ -50,6 +50,31 @@ int[] MaxSearch (int[,] array)
     return arrSum ;
 }
 
+// версия преподавателя
+void RowSmallAmount(int[,] arr)
+{
+    int row_size = arr.GetLength(0);
+    int column_size = arr.GetLength(1);
+    int amount = 1000;
+    int num;
+    int smallest = 0;
+
+    for (int i = 0; i < row_size; i++)
+    {   
+        num = 0;
+        for (int j = 0; j < column_size; j++)
+            num += arr[i, j];
+            Console.Write($"{num, 4} ");            
+
+        if (amount > num)
+        {
+            amount = num;
+            smallest = i;
+        }
+    }
+    Console.WriteLine();
+    Console.Write($"The row with the lowest amount per position - {smallest + 1}");
+}
 
 void ShowMaxString (int[] arr)
 {
