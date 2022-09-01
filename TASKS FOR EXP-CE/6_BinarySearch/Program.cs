@@ -33,23 +33,34 @@ void PrintArray (int[] array)
 }
 
 
-void BinarySearch (int[] array, int find)
+int BinarySearch (int[] array, int find)
 {
     int low = 0;
-    int high = array.Length - 1;
+    int high = array.Length;
     int middle = array.Length / 2;
     int guess = 0;
 
-    while (low < high)
+    while (low < high-1)
     {
         guess = array[middle];
+
         if (guess == find)
-            Console.WriteLine (middle + 1);
+            return (middle + 1);
+
         else if (guess > find)
+        {
             high = middle - 1;
+            middle = ((high -1 - low) / 2);
+        }
+
         else
+        {
             low = middle + 1; 
+            middle = ((high -1 - low) / 2) + middle;
+        }
     }
+    Console.WriteLine("is not found");
+    return 0;
 }
 
 int[] newArr = FillArray(8);
@@ -61,6 +72,6 @@ PrintArray(newArr);
 Console.WriteLine ("Write a wanted number: ");
 int a = int.Parse(Console.ReadLine());
 
-// Console.Write ($"Position of wanted number {BinarySearch(newArr, a)} ");
-BinarySearch(newArr, a);
+Console.Write ($"Position of wanted number {BinarySearch(newArr, a)} ");
+
 
