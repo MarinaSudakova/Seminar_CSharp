@@ -33,37 +33,73 @@ void PrintArray (int[] array)
 }
 
 
+// int BinarySearch (int[] array, int find)
+// {
+//     int low = 0;
+//     int high = array.Length;
+//     int middle = array.Length / 2;
+//     int guess = 0;
+
+//     while (low < high-1)
+//     {
+//         guess = array[middle];
+
+//         if (guess == find)
+//             return (middle + 1);
+
+//         if (guess == find)
+//             return (middle + 1);
+
+//         else if (guess > find)
+//         {
+//             high = middle - 1;
+//             middle = ((high -1 - low) / 2);
+//         }
+
+//         else
+//         {
+//             low = middle + 1; 
+//             middle = ((high -1 - low) / 2) + middle;
+//         }
+//     }
+//     Console.WriteLine("is not found");
+//     return 0;
+// }
+
 int BinarySearch (int[] array, int find)
 {
     int low = 0;
-    int high = array.Length;
+    int high = array.Length-1;
     int middle = array.Length / 2;
-    int guess = 0;
 
-    while (low < high-1)
+    while (low < high)
     {
-        guess = array[middle];
-
-        if (guess == find)
+        if (array[middle] == find)
             return (middle + 1);
 
-        else if (guess > find)
+        else if (array[middle+1] == find)
+            return (middle + 2);
+
+        else if (array[middle-1] == find)
+            return (middle);
+
+        else if (array[middle] > find)
         {
             high = middle - 1;
-            middle = ((high -1 - low) / 2);
+            middle = ((high - low) / 2);
         }
 
         else
         {
             low = middle + 1; 
-            middle = ((high -1 - low) / 2) + middle;
+            middle = ((high - low) / 2) + middle;
         }
     }
     Console.WriteLine("is not found");
     return 0;
 }
 
-int[] newArr = FillArray(8);
+int[] newArr = FillArray(15);
 PrintArray(newArr);
 SortArray(newArr);
 Console.WriteLine();
